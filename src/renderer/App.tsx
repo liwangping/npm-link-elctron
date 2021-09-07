@@ -1,7 +1,9 @@
 import type * as React from 'react'
 import { motion } from 'framer-motion'
-import TopBar from './components/top-bar'
-import logo from './logo.png'
+import TopBar from './components/TopBar'
+import LinksForm from './components/LinksForm'
+import './App.less'
+import 'antd/dist/antd.css'
 
 const containerMotion = {
   initial: 'hidden',
@@ -21,13 +23,15 @@ const containerMotion = {
 
 function App() {
   return (
-    <div tw="h-screen w-screen flex flex-col pt-12">
+    <div className={'app-page'}>
       <TopBar />
-      <motion.div tw="h-full" {...containerMotion}>
-        <div tw="flex flex-col items-center justify-center h-full pb-0">
-          <img tw="h-48 ml-5" src={logo} draggable="false" />
-        </div>
-      </motion.div>
+      <div className="app-container">
+        <motion.div {...containerMotion}>
+          <div className="npm-link-form-box">
+            <LinksForm />
+          </div>
+        </motion.div>
+      </div>
     </div>
   )
 }
